@@ -78,7 +78,18 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Candidato.cs" />
+    <Compile Include="Model\Comuna.cs" />
     <Compile Include="Model\Conexion.cs" />
+    <Compile Include="Model\Data.cs" />
+    <Compile Include="Model\Genero.cs" />
+    <Compile Include="Model\Partido.cs" />
+    <Compile Include="Model\Perfil.cs" />
+    <Compile Include="Model\Persona.cs" />
+    <Compile Include="Model\Provincia.cs" />
+    <Compile Include="Model\Region.cs" />
+    <Compile Include="Model\Sector.cs" />
+    <Compile Include="Model\Votacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
