@@ -9,12 +9,12 @@ namespace SistemaElectoral.Model {
         private String descripcion;
 
         public int Id {
-            get { return Id; }
-            set { Id = value; }
+            get { return this.id; }
+            set { this.id = value; }
         }
         public string Descripcion {
-            get { return Descripcion; }
-            set { Descripcion = value; }
+            get { return this.descripcion; }
+            set { this.descripcion = value; }
         }
     }
 }

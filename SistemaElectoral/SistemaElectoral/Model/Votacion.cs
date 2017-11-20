@@ -13,28 +13,28 @@ namespace SistemaElectoral.Model {
         private int fk_persona;
 
         public int Id {
-            get { return Id; }
-            set { Id = value; }
+            get { return this.id; }
+            set { this.id = value; }
         }
         public bool VotoBlanco {
-            get { return VotoBlanco; }
-            set { VotoBlanco = value; }
+            get { return this.votoBlanco; }
+            set { this.votoBlanco = value; }
         }
         public bool VotoNulo {
-            get { return VotoNulo; }
-            set { VotoNulo = value; }
+            get { return this.votoNulo; }
+            set { this.votoNulo = value; }
         }
         public bool VotoCandidato {
-            get { return VotoCandidato; }
-            set { VotoCandidato = value; }
+            get { return this.votoCandidato; }
+            set { this.votoCandidato = value; }
         }
         public int Fk_candidato {
-            get { return Fk_candidato; }
-            set { Fk_candidato = value; }
+            get { return this.fk_candidato; }
+            set { this.fk_candidato = value; }
         }
         public int Fk_persona {
-            get { return Fk_persona; }
-            set { Fk_persona = value; }
+            get { return this.fk_persona; }
+            set { this.fk_persona = value; }
         }
     }
 }

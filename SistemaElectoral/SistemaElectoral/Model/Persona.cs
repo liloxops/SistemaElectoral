@@ -13,28 +13,28 @@ namespace SistemaElectoral.Model {
         private int fk_comuna;
 
         public int Id {
-            get { return Id; }
-            set { Id = value; }
+            get { return this.id; }
+            set { this.id = value; }
         }
         public string Rut {
-            get { return Rut; }
-            set { Rut = value; }
+            get { return this.rut; }
+            set { this.rut = value; }
         }
         public string Nombre {
-            get { return Nombre; }
-            set { Nombre = value; }
+            get { return this.nombre; }
+            set { this.nombre = value; }
         }
         public int Edad {
-            get { return Edad; }
-            set { Edad = value; }
+            get { return this.edad; }
+            set { this.edad = value; }
         }
         public int Fk_genero {
-            get { return Fk_genero; }
-            set { Fk_genero = value; }
+            get { return this.fk_genero; }
+            set { this.fk_genero = value; }
         }
         public int Fk_comuna {
-            get { return Fk_comuna; }
-            set { Fk_comuna = value; }
+            get { return this.fk_comuna; }
+            set { this.fk_comuna = value; }
         }
     }
 }

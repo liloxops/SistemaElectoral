@@ -10,16 +10,16 @@ namespace SistemaElectoral.Model {
         private int fk_sector;
 
         public int Id {
-            get { return Id; }
-            set { Id = value; }
+            get { return this.id; }
+            set { this.id = value; }
         }
         public string Descripcion {
-            get { return Descripcion; }
-            set { Descripcion = value; }
+            get { return this.descripcion; }
+            set { this.descripcion = value; }
         }
         public int Fk_sector {
-            get { return Fk_sector; }
-            set { Fk_sector = value; }
+            get { return this.fk_sector; }
+            set { this.fk_sector = value; }
         }
     }
 }

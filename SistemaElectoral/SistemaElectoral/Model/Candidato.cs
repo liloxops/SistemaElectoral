@@ -10,16 +10,16 @@ namespace SistemaElectoral.Model {
         private int fk_partida;
 
         public int Id {
-            get { return id; }
-            set { id = value; }
+            get { return this.id; }
+            set { this.id = value; }
         }
         public string Nombre {
-            get { return nombre; }
-            set { nombre = value; }
+            get { return this.nombre; }
+            set { this.nombre = value; }
         }
         public int Fk_partida {
-            get { return Fk_partida; }
-            set { Fk_partida = value; }
+            get { return this.fk_partida; }
+            set { this.fk_partida = value; }
         }
     }
 }
