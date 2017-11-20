@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="View\Default.aspx" />
+    <Content Include="View\Votar_Candidato.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -101,6 +102,13 @@
     </Compile>
     <Compile Include="View\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Votar_Candidato.aspx.cs">
+      <DependentUpon>Votar_Candidato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Votar_Candidato.aspx.designer.cs">
+      <DependentUpon>Votar_Candidato.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />
