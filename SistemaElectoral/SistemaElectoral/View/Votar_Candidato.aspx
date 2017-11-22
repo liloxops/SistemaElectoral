@@ -30,7 +30,7 @@
                 </td>
             </tr>
             <tr>
-                <td>Sanchez</td>
+                <td><</td>
                 <td>a</td>
                 <td>
                     <input type="radio" value="radioVoto" name="voto" />

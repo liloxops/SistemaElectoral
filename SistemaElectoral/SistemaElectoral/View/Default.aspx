@@ -7,6 +7,12 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Elecciones 2018</title>
+    <script type="text/javascript"> 
+       
+        function comuna() {
+            alert("Hola");
+        }
+       </script> 
 </head>
 <body>
     <script type="text/JavaScript"
@@ -16,8 +22,9 @@
 
     <h2>Elija su Provincia</h2>
     <form action="Votar_Candidato.aspx">
-        Provincia: 
-             <select id="cboPro" name="cboPro">
+        Provincia:
+            
+             <select id="cboPro" name="cboPro" onchange="cargarComuna()">
                  <option>--Seleccionar--</option>
                  <%
                      foreach (Provincia p in d.getListaProvincia()) {
@@ -30,16 +37,27 @@
 
         Comuna:
             <select name="cboComuna" id="resultado">
-                <option>--Seleccionar--</option>
+               <option>--Seleccionar--</option>
+
+                 <%
+                     // foreach (Comuna p in d.getListaComuna()) {
+                     //      Response.Write("<option value='" + p.Id + "'>" + p.Nombre + "</option>");
+                     //   }
+                 %>
             </select>
         <script type="text/javascript">   
 
             function cargarComuna() {
-                var txtfitro = $("$cboPro").value()
+                alert("entro");
+                
+                var txtfitro = $('#cboPro').val()
+
+                alert(txtfitro)
                 $.ajax({
                     type: "POST",
-                    url: "Controller/CargarComboComuna.ashx",
-                    data: { filtro: txtfitro },
+                    url: "CargarComboComuna.ashx",
+
+                    data: { filtro: $('#cboPro').val()},
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     async: "true",

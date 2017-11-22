@@ -12,6 +12,7 @@ namespace SistemaElectoral.Model {
             con = new Conexion("eleciones2018");
         }
 
+        
         public List<Comuna> getListaComuna(String id) {
             List<Comuna> lis = new List<Comuna>();
             query = "SELECT * FROM comuna WHERE fk_Provincia =" + id;
@@ -31,6 +32,10 @@ namespace SistemaElectoral.Model {
             return lis;
         }
 
+        public String getComuna(string a) {
+            a = "algo";
+            return a;
+        }
         public List<Provincia> getListaProvincia() {
             List<Provincia> lis = new List<Provincia>();
             query = "SELECT * FROM provincia";
@@ -43,13 +48,13 @@ namespace SistemaElectoral.Model {
                 p.Id = con.rs.GetInt32(0);
                 p.Nombre = con.rs.GetString(1);
                 p.Fk_region = con.rs.GetInt32(2);
-                
+
                 lis.Add(p);
             }
 
             con.Cerrar();
             return lis;
         }
-       
+
     }
 }
