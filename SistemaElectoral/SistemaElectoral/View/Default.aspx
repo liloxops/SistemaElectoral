@@ -44,7 +44,11 @@
                      //      Response.Write("<option value='" + p.Id + "'>" + p.Nombre + "</option>");
                      //   }
                  %>
+
             </select>
+
+
+
         <script type="text/javascript">   
 
             function cargarComuna() {
