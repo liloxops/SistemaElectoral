@@ -4,21 +4,25 @@ using System.Linq;
 using System.Web;
 
 namespace SistemaElectoral.Model {
-    public class Data {
+    public class Data
+    {
         private Conexion con;
         private String query;
 
-        public Data() {
+        public Data()
+        {
             con = new Conexion("eleciones2018");
         }
 
-        
-        public List<Comuna> getListaComuna(String id) {
+
+        public List<Comuna> getListaComuna(String id)
+        {
             List<Comuna> lis = new List<Comuna>();
-            query = "SELECT * FROM comuna WHERE fk_Provincia =" + id;
+            query = "select * from comuna where fk_Provincia = " + id;
             con.Ejecutar(query);
             Comuna p;
-            while (con.rs.Read()) {
+            while (con.rs.Read())
+            {
                 p = new Comuna();
 
                 p.Id = con.rs.GetInt32(0);
@@ -32,17 +36,41 @@ namespace SistemaElectoral.Model {
             return lis;
         }
 
-        public String getComuna(string a) {
+        public List<Candidato> getListaCandidatos()
+        {
+            List<Candidato> listaCandi = new List<Candidato>();
+            query = "select * from candidato";
+
+            con.Ejecutar(query);
+            Candidato c;
+            while (con.rs.Read())
+            {
+                c = new Candidato();
+
+                c.Id = con.rs.GetInt32(0);
+                c.Nombre = con.rs.GetString(1);
+                c.Fk_partida = con.rs.GetInt32(2);
+
+                listaCandi.Add(c);
+            }
+            con.Cerrar();
+            return listaCandi;
+        }
+
+        public String getComuna(string a)
+        {
             a = "algo";
             return a;
         }
-        public List<Provincia> getListaProvincia() {
+        public List<Provincia> getListaProvincia()
+        {
             List<Provincia> lis = new List<Provincia>();
             query = "SELECT * FROM provincia";
 
             con.Ejecutar(query);
             Provincia p;
-            while (con.rs.Read()) {
+            while (con.rs.Read())
+            {
                 p = new Provincia();
 
                 p.Id = con.rs.GetInt32(0);

@@ -9,14 +9,18 @@ namespace SistemaElectoral.Controller {
     /// <summary>
     /// Descripción breve de CargarComboComuna
     /// </summary>
-    public class CargarComboComuna : IHttpHandler {
+    public class CargarComboComuna : IHttpHandler
+    {
 
-        public void ProcessRequest(HttpContext context) {
-            String filtro = context.Request.Params["filtro"];
-            
+        public void ProcessRequest(HttpContext context)
+        {
+            context.Response.ContentType = "text/html";
+            String filtro = context.Request.Params["id"];
+
             Data d = new Data();
 
-            foreach (Comuna c in d.getListaComuna(filtro)) {
+            foreach (Comuna c in d.getListaComuna(filtro))
+            {
                 context.Response.Write("<option value='" + c.Id + "'>" + c.Nombre + " </option>"); ;
             }
         }
