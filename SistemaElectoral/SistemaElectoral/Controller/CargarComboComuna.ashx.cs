@@ -21,6 +21,7 @@ namespace SistemaElectoral.Controller {
 
             foreach (Comuna c in d.getListaComuna(filtro))
             {
+                context.Response.Write("<otion>-- Seleccionar --</option>");
                 context.Response.Write("<option value='" + c.Id + "'>" + c.Nombre + " </option>"); ;
             }
         }

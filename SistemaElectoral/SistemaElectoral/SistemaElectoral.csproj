@@ -67,6 +67,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Controller\CargarComboComuna.ashx" />
+    <Content Include="Controller\votacionHandler.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -83,6 +84,9 @@
   <ItemGroup>
     <Compile Include="Controller\CargarComboComuna.ashx.cs">
       <DependentUpon>CargarComboComuna.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\votacionHandler.ashx.cs">
+      <DependentUpon>votacionHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="Model\Candidato.cs" />
     <Compile Include="Model\Comuna.cs" />

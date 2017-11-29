@@ -36,9 +36,6 @@ CREATE TABLE comuna(
 GO
 CREATE TABLE votacion(
 	id INT PRIMARY KEY IDENTITY(1,1),
-	votoBlanco BIT,
-	votoNulo BIT,
-	votoCandidato BIT,
 	fk_Candidato INT,
 	fk_comuna INT,
 	FOREIGN KEY (fk_Candidato) REFERENCES candidato(id),
@@ -65,8 +62,7 @@ insert into candidato values('Marco Enriquez-Ominami');
 insert into candidato values('Eduardo Artes');
 insert into candidato values('Alejandro Navarro');
 
-INSERT INTO genero VALUES('Masculino');
-INSERT INTO genero VALUES('Femenino');
+
 
 
 INSERT INTO region VALUES('Sexta Region');
@@ -115,6 +111,31 @@ INSERT INTO comuna VALUES('Placilla',3);
 INSERT INTO comuna VALUES('Pumanque',3);
 INSERT INTO comuna VALUES('Santa Cruz',3);
 
+Insert INTO votacion VALUES(1,3);
+Insert INTO votacion VALUES(1,1);
+Insert INTO votacion VALUES(1,2);
+Insert INTO votacion VALUES(1,2);
+Insert INTO votacion VALUES(3,3);
+Insert INTO votacion VALUES(3,6);
+Insert INTO votacion VALUES(4,6);
+Insert INTO votacion VALUES(4,8);
+Insert INTO votacion VALUES(5,1);
+Insert INTO votacion VALUES(5,1);
+Insert INTO votacion VALUES(6,1);
+Insert INTO votacion VALUES(6,1);
+Insert INTO votacion VALUES(8,1);
+Insert INTO votacion VALUES(8,1);
+Insert INTO votacion VALUES(1,1);
+Insert INTO votacion VALUES(2,1);
+Insert INTO votacion VALUES(2,1);
+Insert INTO votacion VALUES(2,1);
+Insert INTO votacion VALUES(3,1);
+Insert INTO votacion VALUES(3,1);
+Insert INTO votacion VALUES(4,1);
+Insert INTO votacion VALUES(5,1);
+Insert INTO votacion VALUES(5,1);
+Insert INTO votacion VALUES(5,1);
 
 select comuna.nombre from comuna where fk_Provincia = 2;
-
+select * from votacion
+select count(fk_Candidato) as 'votacion' from votacion where fk_Candidato= 8;

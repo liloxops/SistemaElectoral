@@ -14,6 +14,28 @@ namespace SistemaElectoral.Model {
             con = new Conexion("eleciones2018");
         }
 
+        public void votar(Votacion v) {
+
+            query = "insert into votacion values('"+v.Fk_candidato+"','"+v.Fk_comuna+"');";
+
+            con.Ejecutar(query);
+            
+        }
+        public int countVotos(Votacion v) {
+            int votos = 0;
+
+            query = "select count(fk_Candidato) from votacion where fk_Candidato ='"+ v.Fk_candidato+"'";
+
+            con.Ejecutar(query);
+
+            while (con.rs.Read()) {
+                votos = con.rs.GetInt32(0);
+            }
+            con.Cerrar();
+
+            return votos;
+
+        }
 
         public List<Comuna> getListaComuna(String id)
         {
@@ -49,7 +71,7 @@ namespace SistemaElectoral.Model {
 
                 c.Id = con.rs.GetInt32(0);
                 c.Nombre = con.rs.GetString(1);
-                c.Fk_partida = con.rs.GetInt32(2);
+                
 
                 listaCandi.Add(c);
             }

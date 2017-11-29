@@ -6,9 +6,6 @@ using System.Web;
 namespace SistemaElectoral.Model {
     public class Votacion {
         private int id;
-        private Boolean votoBlanco;
-        private Boolean votoNulo;
-        private Boolean votoCandidato;
         private int fk_candidato;
         private int fk_comuna;
 
@@ -16,23 +13,12 @@ namespace SistemaElectoral.Model {
             get { return this.id; }
             set { this.id = value; }
         }
-        public bool VotoBlanco {
-            get { return this.votoBlanco; }
-            set { this.votoBlanco = value; }
-        }
-        public bool VotoNulo {
-            get { return this.votoNulo; }
-            set { this.votoNulo = value; }
-        }
-        public bool VotoCandidato {
-            get { return this.votoCandidato; }
-            set { this.votoCandidato = value; }
-        }
+        
         public int Fk_candidato {
             get { return this.fk_candidato; }
             set { this.fk_candidato = value; }
         }
-        public int Fk_Comuna {
+        public int Fk_comuna {
             get { return this.fk_comuna; }
             set { this.fk_comuna = value; }
         }

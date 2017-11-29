@@ -10,25 +10,32 @@
 <body>
     <% Data d = new Data();%>
     <h1>Elija Un Candidato</h1>
-    <form action="" method="post">
+    <form action="../Controller/votacionHandler.ashx" method="post">
         <table border="1">
             <tr>
                 <th>Nombre Candidatos</th>
                 <th>Elegir</th>
 
             </tr>
-                <%
+                <%  
                     foreach (Candidato c in d.getListaCandidatos())
                     {
                         Response.Write("<tr>");
                         Response.Write("<td>"+c.Nombre+"</td>");
-                        Response.Write("<td><input type='radio' value='radioVoto' name='voto'/></td>");
+                        Response.Write("<td><input type='radio' value='"+c.Id+"' name='voto'/></td>");
                         Response.Write("</tr>");
                     }
                 %>
             
         </table>
+        <%String idComuna = Context.Request.Params["result"]; %>
+        <% Response.Write("<h2>"+idComuna+"</h2>"); %>
+        <% Response.Write("<input type = 'hidden' name = 'comuna' value = "+idComuna+ " >"); %>
+        
+
+        <p><% = idComuna %></p>
         <input type="submit" value="Votar"/>
+        
     </form>
     </body>
 </html>

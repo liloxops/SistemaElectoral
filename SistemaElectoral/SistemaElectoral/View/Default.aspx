@@ -32,7 +32,7 @@
         <h2>Elija su Comuna</h2>
 
         Comuna:
-            <select id="resultado" onchange="comu()">
+            <select id="resultado" name="result" onchange="comu()">
                 <option>--Seleccionar--</option>
 
                 <%
