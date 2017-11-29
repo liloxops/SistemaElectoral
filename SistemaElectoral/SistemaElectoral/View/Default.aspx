@@ -13,6 +13,21 @@
 <body>
 
     <% Data d = new Data();%>
+    <%
+        try
+        {
+            Usuario u = (Usuario)Session["usuario"];
+            if (u == null)
+            {
+                Response.Redirect("InicioSesion.aspx");
+            }
+        }
+        catch (Exception)
+        {
+            Response.Redirect("InicioSesion.aspx");
+        }
+
+    %>
     <h1>Bienvenidos al Sistema Elecciones 2018</h1>
 
     <h2>Elija su Provincia</h2>
@@ -44,13 +59,10 @@
         <script>
             function comu() {
                 var idCom = $("#resultado").val();
-                alert(idCom);
+
             }
             function cboComuna() {
                 var id = $("#cboPro").val();
-
-                alert(id);
-
 
                 $.ajax({
                     url: "../Controller/CargarComboComuna.ashx",
@@ -69,8 +81,13 @@
 
         <br />
         <br />
-        
+
     </form>
     <a href="EstadisticasVotacion.aspx">Ir a estadisticas</a>
+
+    <br />
+    <a href="../Controller/cerrarSesionHandler.ashx"> Cerrar Sesion</a>
+    
+
 </body>
 </html>

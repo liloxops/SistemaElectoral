@@ -14,21 +14,25 @@ namespace SistemaElectoral.Model {
             con = new Conexion("eleciones2018");
         }
 
-        public void votar(Votacion v) {
+        public void votar(Votacion v)
+        {
 
-            query = "insert into votacion values('"+v.Fk_candidato+"','"+v.Fk_comuna+"');";
+            query = "insert into votacion values('" + v.Fk_candidato + "','" + v.Fk_comuna + "');";
 
             con.Ejecutar(query);
-            
+
         }
-        public int countVotos(Votacion v) {
+        public int countVotos()
+        {
+            Votacion v = new Votacion();
             int votos = 0;
 
-            query = "select count(fk_Candidato) from votacion where fk_Candidato ='"+ v.Fk_candidato+"'";
+            query = "select count(fk_Candidato) from votacion where fk_Candidato ='" + v.Fk_candidato + "'";
 
             con.Ejecutar(query);
 
-            while (con.rs.Read()) {
+            while (con.rs.Read())
+            {
                 votos = con.rs.GetInt32(0);
             }
             con.Cerrar();
@@ -36,7 +40,6 @@ namespace SistemaElectoral.Model {
             return votos;
 
         }
-
         public List<Comuna> getListaComuna(String id)
         {
             List<Comuna> lis = new List<Comuna>();
@@ -58,6 +61,8 @@ namespace SistemaElectoral.Model {
             return lis;
         }
 
+
+
         public List<Candidato> getListaCandidatos()
         {
             List<Candidato> listaCandi = new List<Candidato>();
@@ -71,7 +76,6 @@ namespace SistemaElectoral.Model {
 
                 c.Id = con.rs.GetInt32(0);
                 c.Nombre = con.rs.GetString(1);
-                
 
                 listaCandi.Add(c);
             }
@@ -104,6 +108,26 @@ namespace SistemaElectoral.Model {
 
             con.Cerrar();
             return lis;
+        }
+
+        
+        public Usuario usuarioIngreso(String nombre, String pass)
+        {
+            query = "select * from usuario where nombre = '"+nombre+"' and pass = '"+pass+"'";
+
+            con.Ejecutar(query);
+
+            Usuario u = null;
+
+            if (con.rs.Read()) {
+                u = new Usuario();
+
+                u.Id = con.rs.GetInt32(0);
+                u.Nombre = con.rs.GetString(1);
+                u.Pass = con.rs.GetString(2);
+            }
+            con.Cerrar();
+            return u;
         }
 
     }

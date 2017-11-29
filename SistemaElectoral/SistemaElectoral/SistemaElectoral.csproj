@@ -23,6 +23,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -67,7 +68,9 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Controller\CargarComboComuna.ashx" />
+    <Content Include="Controller\InicioSesionHandler.ashx" />
     <Content Include="Controller\votacionHandler.ashx" />
+    <Content Include="Controller\cerrarSesionHandler.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -77,13 +80,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="View\Default.aspx" />
+    <Content Include="View\Error.aspx" />
     <Content Include="View\EstadisticasVotacion.aspx" />
+    <Content Include="View\InicioSesion.aspx" />
     <Content Include="View\Votar_Candidato.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\CargarComboComuna.ashx.cs">
       <DependentUpon>CargarComboComuna.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\cerrarSesionHandler.ashx.cs">
+      <DependentUpon>cerrarSesionHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\InicioSesionHandler.ashx.cs">
+      <DependentUpon>InicioSesionHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="Controller\votacionHandler.ashx.cs">
       <DependentUpon>votacionHandler.ashx</DependentUpon>
@@ -104,12 +115,26 @@
     <Compile Include="View\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\EstadisticasVotacion.aspx.cs">
       <DependentUpon>EstadisticasVotacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\EstadisticasVotacion.aspx.designer.cs">
       <DependentUpon>EstadisticasVotacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\InicioSesion.aspx.cs">
+      <DependentUpon>InicioSesion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\InicioSesion.aspx.designer.cs">
+      <DependentUpon>InicioSesion.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Votar_Candidato.aspx.cs">
       <DependentUpon>Votar_Candidato.aspx</DependentUpon>

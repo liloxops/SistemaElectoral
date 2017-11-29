@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Votar_Candidato.aspx.cs" Inherits="SistemaElectoral.View.Votar_Candidato" %>
+
 <%@ Import Namespace="SistemaElectoral.Model" %>
 <!DOCTYPE html>
 
@@ -17,25 +18,23 @@
                 <th>Elegir</th>
 
             </tr>
-                <%  
-                    foreach (Candidato c in d.getListaCandidatos())
-                    {
-                        Response.Write("<tr>");
-                        Response.Write("<td>"+c.Nombre+"</td>");
-                        Response.Write("<td><input type='radio' value='"+c.Id+"' name='voto'/></td>");
-                        Response.Write("</tr>");
-                    }
-                %>
-            
+            <%
+                foreach (Candidato c in d.getListaCandidatos())
+                {
+                    Response.Write("<tr>");
+                    Response.Write("<td>" + c.Nombre + "</td>");
+                    Response.Write("<td><input type='radio' value='" + c.Id + "' name='voto'/></td>");
+                    Response.Write("</tr>");
+                }
+            %>
         </table>
         <%String idComuna = Context.Request.Params["result"]; %>
-        <% Response.Write("<h2>"+idComuna+"</h2>"); %>
-        <% Response.Write("<input type = 'hidden' name = 'comuna' value = "+idComuna+ " >"); %>
-        
+        <% Response.Write("<h2>" + idComuna + "</h2>"); %>
+        <% Response.Write("<input type = 'hidden' name = 'comuna' value = " + idComuna + " >"); %>
+
 
         <p><% = idComuna %></p>
-        <input type="submit" value="Votar"/>
-        
+        <input type="submit" value="Votar" />
     </form>
-    </body>
+</body>
 </html>

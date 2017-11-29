@@ -15,7 +15,7 @@ namespace SistemaElectoral.Controller
         {
             String voto = context.Request.Params["voto"];
             String StrComuna = context.Request.Params["comuna"];
-            
+
 
             Data d = new Data();
 
@@ -26,17 +26,16 @@ namespace SistemaElectoral.Controller
                 int idComuna = int.Parse(StrComuna);
                 vo.Fk_candidato = int.Parse(voto);
                 vo.Fk_comuna = idComuna;
+                d.countVotos();
                 d.votar(vo);
 
                 context.Response.Redirect("../View/Default.aspx");
             }
-            else {
+            else
+            {
 
                 context.Response.Redirect("/votarHandler.ashx");
             }
-           
-
-            
         }
 
         public bool IsReusable {
