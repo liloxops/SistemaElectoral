@@ -11,7 +11,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
-    
+
     <% Data d = new Data();%>
     <h1>Bienvenidos al Sistema Elecciones 2018</h1>
 
@@ -22,7 +22,8 @@
              <select id="cboPro" name="cboPro" onchange="cboComuna()">
                  <option>--Seleccionar--</option>
                  <%
-                     foreach (Provincia p in d.getListaProvincia()) {
+                     foreach (Provincia p in d.getListaProvincia())
+                     {
                          Response.Write("<option value='" + p.Id + "'>" + p.Nombre + "</option>");
                      }
                  %>
@@ -31,34 +32,45 @@
         <h2>Elija su Comuna</h2>
 
         Comuna:
-            <select id="resultado">
-               <option>--Seleccionar--</option>
+            <select id="resultado" onchange="comu()">
+                <option>--Seleccionar--</option>
 
-                 <%
-                     //foreach (Comuna p in d.getListaComuna()) {
-                     //     Response.Write("<option value='" + p.Id + "'>" + p.Nombre + "</option>");
-                     //  }
-                 %>
+                <%
+                    //foreach (Comuna p in d.getListaComuna()) {
+                    //     Response.Write("<option value='" + p.Id + "'>" + p.Nombre + "</option>");
+                    //  }
+                %>
             </select>
-       <script>
-           function cboComuna() {
-               var id = $("#cboPro").val();
-               alert(id);
-               $.ajax({
-                   url: "../Controller/CargarComboComuna.ashx",
-                   data: {
-                       id: id
-                   },
-                   success: function (result) {
-                       $("#resultado").html(result);
-                   }
-               });
-           }
-    </script>
+        <script>
+            function comu() {
+                var idCom = $("#resultado").val();
+                alert(idCom);
+            }
+            function cboComuna() {
+                var id = $("#cboPro").val();
+
+                alert(id);
+
+
+                $.ajax({
+                    url: "../Controller/CargarComboComuna.ashx",
+                    data: {
+                        id: id
+                    },
+                    success: function (result) {
+                        $("#resultado").html(result);
+                    }
+                });
+            }
+        </script>
         <br />
         <br />
         <input type="submit" value="Ir a votacion" />
-    </form>
 
+        <br />
+        <br />
+        
+    </form>
+    <a href="EstadisticasVotacion.aspx">Ir a estadisticas</a>
 </body>
 </html>

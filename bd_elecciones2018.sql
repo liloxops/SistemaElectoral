@@ -1,29 +1,18 @@
-CREATE DATABASE eleciones2018; -- DROP DATABASE eleciones2018
+-- DROP DATABASE eleciones2018
+
+CREATE DATABASE eleciones2018; 
 GO
 USE eleciones2018;
 GO
-CREATE TABLE sector(
-	id INT PRIMARY KEY IDENTITY(1,1),
-	descripcion VARCHAR(50)
-);
-GO
-CREATE TABLE partido(
-	id INT PRIMARY KEY IDENTITY(1,1),
-	descripcion VARCHAR(50),
-	fk_Sector INT,
-	FOREIGN KEY (fk_Sector) REFERENCES sector(id)
-);
-GO
 CREATE TABLE candidato(
 	id INT PRIMARY KEY IDENTITY(1,1),
-	nombre VARCHAR(100),
-	fk_Partido INT,
-	FOREIGN KEY (fk_Partido) REFERENCES partido(id)
+	nombre VARCHAR(100)
 );
 GO
-CREATE TABLE perfil(
+CREATE TABLE usuario(
 	id INT PRIMARY KEY IDENTITY(1,1),
-	nombre VARCHAR(50)
+	nombre VARCHAR(50),
+	pass varchar(50)
 );
 GO
 CREATE TABLE region(
@@ -45,48 +34,36 @@ CREATE TABLE comuna(
 	FOREIGN KEY (fk_Provincia) REFERENCES provincia(id)
 );
 GO
-CREATE TABLE genero(
-	id INT PRIMARY KEY IDENTITY(1,1),
-	descripcion VARCHAR(50)
-);
-GO
-CREATE TABLE persona(
-	id INT PRIMARY KEY IDENTITY(1,1),
-	rut VARCHAR(13),
-	nombre VARCHAR(100),
-	edad INT,
-	fk_Genero INT,
-	fk_Comuna INT,
-	FOREIGN KEY (fk_Comuna) REFERENCES comuna(id),
-	FOREIGN KEY (fk_Genero) REFERENCES genero(id)
-);
 CREATE TABLE votacion(
 	id INT PRIMARY KEY IDENTITY(1,1),
 	votoBlanco BIT,
 	votoNulo BIT,
 	votoCandidato BIT,
 	fk_Candidato INT,
-	fk_persona INT,
+	fk_comuna INT,
 	FOREIGN KEY (fk_Candidato) REFERENCES candidato(id),
-	FOREIGN KEY (fk_persona) REFERENCES persona(id)
+	FOREIGN KEY (fk_comuna) REFERENCES comuna(id)
 );
 GO
 
 --Insert--
-INSERT INTO sector VALUES('Izquierda'	 );
-INSERT INTO sector VALUES('Centro Izquierda');
-INSERT INTO sector VALUES('Centro');
-INSERT INTO sector VALUES('Centro Izquierda');
-INSERT INTO sector VALUES('Derecha');
-
-
-INSERT INTO partido VALUES('Chile Vamos',);
+INSERT INTO partido VALUES('Chile Vamos');
 INSERT INTO partido VALUES('Unión Patriótica');
 INSERT INTO partido VALUES('Partido Por la Democracia');
 INSERT INTO partido VALUES('Independiente');
 INSERT INTO partido VALUES('Partido Demócrata Cristiano');
 INSERT INTO partido VALUES('Partido Progresista');
+INSERT INTO partido VALUES('Frente Amplio');
+INSERT INTO partido VALUES('Partido Pais');
 
+insert into candidato values('Carolina Goic');
+insert into candidato values('Jose Antonio Kast');
+insert into candidato values('Sebastian Piñera');
+insert into candidato values('Alejandro Guillier');
+insert into candidato values('Beatriz Sanchez');
+insert into candidato values('Marco Enriquez-Ominami');
+insert into candidato values('Eduardo Artes');
+insert into candidato values('Alejandro Navarro');
 
 INSERT INTO genero VALUES('Masculino');
 INSERT INTO genero VALUES('Femenino');
@@ -138,4 +115,6 @@ INSERT INTO comuna VALUES('Placilla',3);
 INSERT INTO comuna VALUES('Pumanque',3);
 INSERT INTO comuna VALUES('Santa Cruz',3);
 
+
+select comuna.nombre from comuna where fk_Provincia = 2;
 

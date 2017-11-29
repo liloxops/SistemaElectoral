@@ -10,7 +10,7 @@ namespace SistemaElectoral.Model {
         private Boolean votoNulo;
         private Boolean votoCandidato;
         private int fk_candidato;
-        private int fk_persona;
+        private int fk_comuna;
 
         public int Id {
             get { return this.id; }
@@ -32,9 +32,9 @@ namespace SistemaElectoral.Model {
             get { return this.fk_candidato; }
             set { this.fk_candidato = value; }
         }
-        public int Fk_persona {
-            get { return this.fk_persona; }
-            set { this.fk_persona = value; }
+        public int Fk_Comuna {
+            get { return this.fk_comuna; }
+            set { this.fk_comuna = value; }
         }
     }
 }

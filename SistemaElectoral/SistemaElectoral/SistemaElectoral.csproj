@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="View\Default.aspx" />
+    <Content Include="View\EstadisticasVotacion.aspx" />
     <Content Include="View\Votar_Candidato.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -87,13 +88,9 @@
     <Compile Include="Model\Comuna.cs" />
     <Compile Include="Model\Conexion.cs" />
     <Compile Include="Model\Data.cs" />
-    <Compile Include="Model\Genero.cs" />
-    <Compile Include="Model\Partido.cs" />
-    <Compile Include="Model\Perfil.cs" />
-    <Compile Include="Model\Persona.cs" />
+    <Compile Include="Model\Usuario.cs" />
     <Compile Include="Model\Provincia.cs" />
     <Compile Include="Model\Region.cs" />
-    <Compile Include="Model\Sector.cs" />
     <Compile Include="Model\Votacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\Default.aspx.cs">
@@ -102,6 +99,13 @@
     </Compile>
     <Compile Include="View\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\EstadisticasVotacion.aspx.cs">
+      <DependentUpon>EstadisticasVotacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\EstadisticasVotacion.aspx.designer.cs">
+      <DependentUpon>EstadisticasVotacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Votar_Candidato.aspx.cs">
       <DependentUpon>Votar_Candidato.aspx</DependentUpon>

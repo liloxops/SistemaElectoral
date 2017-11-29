@@ -9,11 +9,11 @@
 </head>
 <body>
     <% Data d = new Data();%>
-    <h1>Elija Un Presidente</h1>
-    <form>
+    <h1>Elija Un Candidato</h1>
+    <form action="" method="post">
         <table border="1">
             <tr>
-                <th>Nombre presidente</th>
+                <th>Nombre Candidatos</th>
                 <th>Elegir</th>
 
             </tr>
